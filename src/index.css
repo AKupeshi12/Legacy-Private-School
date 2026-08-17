@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #111c2c;
+    background-color: #f9f9ff;
+  }
+}
+
+/* Ticker Marquee Animation */
+@keyframes ticker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-ticker {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker 28s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* Background Image Continuous Scrolling Track */
+@keyframes bgScrollInfinite {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-bg-scroll {
+  display: flex;
+  width: 200%;
+  animation: bgScrollInfinite 35s linear infinite;
+}
+
+.animate-bg-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Typing Cursor Blink Animation */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-typing-cursor {
+  animation: cursorBlink 0.8s infinite;
+}
+
+/* Button Shimmer / Pulse Glow */
+@keyframes buttonPulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(255, 190, 59, 0.4), 0 0 30px rgba(255, 190, 59, 0.2); }
+  50% { box-shadow: 0 0 25px rgba(255, 190, 59, 0.8), 0 0 50px rgba(255, 190, 59, 0.4); }
+}
+
+.animate-btn-glow {
+  animation: buttonPulseGlow 3s ease-in-out infinite;
+}
+
+/* Floating element effect */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+/* Custom Print Styles for Application Slips & Report Cards */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+
+/* Hide scrollbar for clean UI overflow */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
